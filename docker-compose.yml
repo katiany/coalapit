@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    command: uvicorn src.api.main:app --host 0.0.0.0
+    volumes:
+      - .:/app
+    environment:
+      - API_1_URL=https://api1.com
+      - API_2_URL=https://api2.com
+      - API_3_URL=https://api3.com
+    ports:
+      - 8008:8000
